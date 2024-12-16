@@ -1,0 +1,197 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt 
+from sklearn.cluster import KMeans #安裝 conda install scikit-learn
+
+#使用pandas套件的read_csv讀入資料,並以DataFram儲存(2D)
+gda = pd.read_csv('diabetes.csv') 
+
+#檢查gda的資料型態(DataFrame是二維的結構) 
+type(gda)
+
+#印出gda的內容
+#顯示的結果在最前面多一個索引的欄位(pandas預設的),流水號, 從0開始
+gda
+
+#印出gda的資訊, 查看各個欄位的基本資料:名稱,非空值數, 資料型態。
+#欄位同樣有預設的索引(pandas預設的),流水號, 從0開始
+gda.info()
+
+#選擇欄位的方法是使用欄位名稱
+#Glucose: 血液中葡萄糖濃度
+#DiabetesPedigreeFunction: 糖尿病函數，這個函數使用了家族糖尿病史來導出個人得糖尿病的風險值
+#Age: 年齡
+df = gda[['Glucose', 'DiabetesPedigreeFunction', 'Age']]
+df.head()
+
+#查看裁切出的data各個欄位的統計值
+df.describe()
+
+#觀察結果可以看出，血液中葡萄糖的濃度min值跟max值的差距較大
+#如果直接用原始資料進行分群，分群的依據受到大數值的影響較大，而有不公平的現象
+#俗稱小尺度的資料被大尺度的資料 "吃掉"
+#因此通常會將資料進行標準化(或歸一化)。
+#這邊使用最小-最大值標準化
+#最小-最大值標準化: 資料轉換為 (0,1) 範圍的數, [(原始資料 x)-(原始資料中最小值)]/[(原始資料中最大值 x)-(原始資料中最小值)]
+
+#最小值最大值正規化(Min-Max Normalization)
+from sklearn.preprocessing import MinMaxScaler
+#建立轉換資料的框架 scaler, 範圍在 0~1 之間
+scaler = MinMaxScaler(feature_range=(0,1))
+
+#正式做資料轉換,其中先將資料(dataFrame)轉換為 numpy,再用 scale框架轉換資料
+df_minmax = scaler.fit_transform(df.to_numpy())
+#檢視轉換後的內容(介於0~1之間), 此時的資料型態是 numpy(2d)
+df_minmax
+
+#後面集群分析時需要, 因此再轉回pandas的 DataFrame, 同時指定欄位名稱'Glucose', 'DiabetesPedigreeFunction', 'Age'
+#轉換完後顯示資料, 會發現主動給予列索引
+df_minmax = pd.DataFrame(df_minmax, columns = ['Glucose', 'DiabetesPedigreeFunction', 'Age'])
+df_minmax
+
+#使用前面的 from sklearn.cluster import KMeans 套件的集群分析函數 KMeans()
+#先建立模型的框架。
+#KMeans有很多參數可以設定, 不一定每個參數都需要, 若未設定則使自動使用預設值
+# n_clusters=4 分群的數量,預設8群,在此設定4群。
+# max_iter=500 分群過程中演算法執行最大迭代數, 在k-means中，如果執行結果收斂的話，是有可能提前中止，而不會執行到最大迭代次數。
+#random_state 指定隨機亂數種子, 確保每次分群結果都一樣(若是要調參數,才能比較調整前後的差別)
+model_KMC = KMeans(n_clusters = 4, max_iter = 500, random_state = 42)
+
+#將資料進行分群(計算相似度高(距離較近)的點會被分為同一群)
+#分群完後, 每一筆資料會給予一個群編號標籤,0, 1, 2, 3 =>4群
+model_KMC.fit_predict(df_minmax)
+
+#Series是Pandas的一維陣列結構。
+#將model內的標籤存入 Series,再以不同的值分別計數, 印出每一群的個數
+r1 = pd.Series(model_KMC.labels_).value_counts()
+r1
+
+#將model內的中心點(座標)印出
+r2 = pd.DataFrame(model_KMC.cluster_centers_)
+r2
+
+#合併上述兩個矩陣 (axis=1表示欄合併),得到集群中心和筆數的矩陣
+r21 = pd.concat([r2, r1], axis = 1)
+r21
+
+#重新命名 欄位名稱
+# list+list
+r21.columns = list(df_minmax.columns) + ['size_of_Group']
+r21
+
+#將標準化資料 df_minmax 增加群別的欄位 model_KMC.labels_ (axis=1表示欄合併)
+r = pd.concat([df_minmax, pd.Series(model_KMC.labels_, index = df_minmax.index)], axis = 1)
+r
+
+#重新命名 欄位名稱
+r.columns = list(df_minmax.columns) + ['GroupID']
+r
+
+#原始資料 gda 增加一個欄位 "k-means", 其值為分群後的群別
+gda["k-means"] = model_KMC.labels_
+gda
+
+#將上述結果儲存為 csv 檔
+gda.to_csv("gda_KMC_Output.csv",index = False)
+
+#3D散佈圖_精簡方法
+import matplotlib.pyplot as plt
+dft = pd.read_csv('gda_KMC_Output.csv') #讀取csv資料
+#設定 10*8 大小的空畫布
+fig = plt.figure(figsize = (10, 8))
+#設定 3D 圖
+#使用add_subplot()方法來添加一個子圖，並將projection參數設置為'3d'
+#這裡的 111 表示的是 1 行 1 列的子圖，數字分别對應行數、列數和子圖位置
+ax = fig.add_subplot(111, projection='3d')
+#繪製散佈圖, 給予三軸資料, 
+# c(color)使用預設的顏色編號,可以指定 cmap='',不同顏色表示不同群
+# marker = 'o' 標記為圖形
+ax.scatter(dft['Glucose'], dft['Age'], dft['DiabetesPedigreeFunction'], c = dft['k-means'], marker = 'o')
+ax.set_xlabel('Glucose')
+ax.set_ylabel('Age')
+ax.set_zlabel('DiabetesPedigreeFunction')
+plt.show()
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.cluster import KMeans
+
+#設定不同的分群數, 觀察SSE值, 找出適合的分群數
+#模型.inertia_ 記錄分群後的 SSE
+SSE = [] 
+for k in range(2, 11):
+ est = KMeans(n_clusters = k) 
+ est.fit(df_minmax)
+ SSE.append(est.inertia_) 
+SSE
+
+
+# 繪製散佈圖, 找到 Elbow(手肘)點
+# 從圖中可以看出 elbow 出現在 5
+X = range(2, 11)
+plt.xlabel('k')
+plt.ylabel('SSE')
+plt.plot(X, SSE, 'o-')
+plt.show()
+
+#將每一群客戶資料抽出另外儲存
+group0 = r[r['GroupID'] == 0]
+group1 = r[r['GroupID'] == 1]
+group2 = r[r['GroupID'] == 2]
+group3 = r[r['GroupID'] == 3]
+
+#每一群的基本統計量描述
+group0.describe()
+
+group1.describe()
+
+group2.describe()
+
+group3.describe()
+
+#繪製盒鬚圖(箱型圖)
+#重點在觀察中位數的高低和離群值(outlier)的大小
+#盒鬚圖的頂端至底端分別表示了: 最大值,上四分位數,中位數,下四分位數,最小值。超出圖形的範圍為離群值
+group0 = group0[['Glucose', 'DiabetesPedigreeFunction', 'Age']]
+group0.plot.box(title = "Box Chart-Group0")
+plt.grid(linestyle = "--", alpha = 0.3)
+
+group1 = group1[['Glucose', 'DiabetesPedigreeFunction', 'Age']]
+group1.plot.box(title = "Box Chart-Group1")
+plt.grid(linestyle = "--", alpha = 0.3)
+
+group2 = group2[['Glucose', 'DiabetesPedigreeFunction', 'Age']]
+group2.plot.box(title = "Box Chart-Group2")
+plt.grid(linestyle = "--", alpha = 0.3)
+
+group3 = group3[['Glucose', 'DiabetesPedigreeFunction', 'Age']]
+group3.plot.box(title = "Box Chart-Group3")
+plt.grid(linestyle = "--", alpha = 0.3)
+
+#重新編排資料, 改為一次看四個群的同一個欄位值
+g0 = r[r['GroupID'] == 0]
+g1 = r[r['GroupID'] == 1]
+g2 = r[r['GroupID'] == 2]
+g3 = r[r['GroupID'] == 3]
+
+# Glucose
+plt.figure(figsize = (10, 8))
+labels = 'Group0', 'Group1', 'Group2', 'Group3'
+plt.boxplot([g0['Glucose'], g1['Glucose'], g2['Glucose'], g3['Glucose']], labels = labels)
+plt.title('Glucose - Boxplot', fontsize = 20)
+plt.show()
+
+# DiabetesPedigreeFunction
+plt.figure(figsize = (10, 8))
+labels = 'Group0', 'Group1', 'Group2', 'Group3'
+plt.boxplot([g0['DiabetesPedigreeFunction'], g1['DiabetesPedigreeFunction'], g2['DiabetesPedigreeFunction'], g3['DiabetesPedigreeFunction']], labels = labels)
+plt.title('DiabetesPedigreeFunction - Boxplot', fontsize = 20)
+plt.show()
+
+# Age
+plt.figure(figsize = (10, 8))
+labels = 'Group0', 'Group1', 'Group2', 'Group3'
+plt.boxplot([g0['Age'], g1['Age'], g2['Age'], g3['Age']], labels = labels)
+plt.title('Age - Boxplot', fontsize = 20)
+plt.show()
