@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+	<meta charset="UTF-8">
+	<link href="css/L19style.css" rel="stylesheet" media="all">
+	<link href="https://fonts.googleapis.com/css2?family=Limelight&family=Playfair+Display:wght@900&display=swap" rel="stylesheet">
+</head>
+<body>
+	<main id="contents">
+		<form class="ui" id="entryForm" action="#" method="post">
+			<table class="entryTable">
+				<caption>貓咪資料</caption>
+				<tr>
+					<th>貓咪名*</th>
+					<td><input type="text" name="cat-name" required autofocus></td>
+				</tr>
+				<tr>
+					<th>年齡*</th>
+					<td>
+						<select name="age" required>
+							<option value="" selected>請選擇</option>
+							<option value="0">未滿1歲</option>
+							<option value="1">1~5歲</option>
+							<option value="2">6~10歲</option>
+							<option value="3">11~15歲</option>
+							<option value="4">16~20歲</option>
+							<option value="5">20歲以上</option>
+							<option value="6">不明</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th>性別*</th>
+					<td>
+						<input type="radio" name="sex" id="male" value="男生" checked><label for="male">男生</label>
+						<input type="radio" name="sex" id="female" value="女生"><label for="female">女生</label>
+					</td>
+				</tr>
+				<tr>
+					<th>最愛的食物</th>
+					<td>
+						<input type="checkbox" name="favorite" value="魚"><label for="fish">魚</label>
+						<input type="checkbox" name="favorite" value="肉"><label for="fish">肉</label>
+						<input type="checkbox" name="favorite" value="乾飼料"><label for="fish">乾飼料</label>
+						<input type="checkbox" name="favorite" value="貓罐頭"><label for="fish">貓罐頭</label>
+						<input type="checkbox" name="favorite" value="肉泥"><label for="fish">肉泥</label>
+						<input type="checkbox" name="favorite" value="其他"><label for="fish">其他</label>
+					</td>
+				</tr>
+				<tr>
+					<th>照片*</th>
+					<td><input type="file" name="photo" required></td>
+				</tr>
+			</table>
+			<div class="entryBtns">
+				<input type="reset" value="清除重填">
+				<input type="submit" value="送出">
+			</div>
+			<section>
+				<h3>我的課表</h3>
+				<table class="stripe">
+					<thead>
+						<tr>
+							<td></td>
+							<td>星期一</td>
+							<td>星期二</td>
+							<td>星期三</td>
+							<td>星期四</td>
+							<td>星期五</td>
+						</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>1</td>
+						<td>國文</td>
+						<td>體育</td>
+						<td></td>
+						<td></td>
+						<td>大學之道</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>國文</td>
+						<td>體育</td>
+						<td>程式設計</td>
+						<td>英文</td>
+						<td>大學之道</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>日文</td>
+						<td></td>
+						<td>程式設計</td>
+						<td>英文</td>
+						<td>服務與學習</td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td>日文</td>
+						<td></td>
+						<td>程式設計</td>
+						<td>英文</td>
+						<td>服務與學習</td>
+					</tr>
+					<tr>
+						<td>5</td>
+						<td>企業管理</td>
+						<td>經濟學</td>
+						<td>網頁設計</td>
+						<td></td>
+						<td>微積分</td>
+					</tr>
+					<tr>
+						<td>6</td>
+						<td>企業管理</td>
+						<td>經濟學</td>
+						<td>網頁設計</td>
+						<td></td>
+						<td>微積分</td>
+					</tr>
+					<tr>
+						<td>7</td>
+						<td>企業管理</td>
+						<td>經濟學</td>
+						<td>網頁設計</td>
+						<td>班會</td>
+						<td>微積分</td>
+					</tr>
+					<tr>
+						<td>8</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>班會</td>
+						<td></td>
+					</tr>
+					</tbody>
+				</table>
+			</section>
+		</form>
+	</main>
+	<p id="pagetop1"><a href="#">TOPへ</a></p>
+	<p id="pagetop"><a href="http://web3.nutc.edu.tw/~s1411031011/HW/Index.htm">首頁へ</a></p>
+</body>
+</html>

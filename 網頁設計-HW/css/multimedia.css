@@ -1,0 +1,35 @@
+@charset"utf-8";
+
+/*回頁面開頭*/
+#pagetop{
+	margin: 0;
+	position: fixed;
+	right: 0;
+	bottom: 42px;
+	font-size: 16px;
+	z-index: 9999;
+}
+
+#pagetop a{
+	display: block;
+	padding: 5px 20px;
+	background: #000;
+	color: #fff;
+	text-decoration: none;
+}
+
+#pagetop1{
+	margin: 0;
+	position: fixed;
+	left: 0;
+	bottom: 42px;
+	z-index: 9999;
+}
+
+#pagetop1 a{
+	display:inline-block;
+	padding:10px;
+	background: #000;
+	color: #fff;
+	text-decoration: none;
+}

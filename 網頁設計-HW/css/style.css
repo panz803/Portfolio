@@ -1,0 +1,183 @@
+@charset"utf-8";
+
+body{
+	background-color: #FFFFFF;
+	background-size: 50px;
+	background-position: left top;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+#header{
+	z-index: 9999;
+	position: fixed;
+	left: 0;
+	top: 0;
+	background-color: #4F5D75;
+	width: 100%;
+	margin: 6px auto;
+	color: #2D3142; 
+	text-shadow: -0.5px -0.5px 0 #aaa, 0.5px 0.5px 0 #FFF; 
+	box-shadow: 0 0 0 6px #9cc883;
+}
+
+#header li{
+	margin: 6px 6px;
+	padding: 10px;
+}
+
+.menu {
+	font-family: '標楷體';
+	font-size: 20px;
+	text-align:center;
+}
+
+.menu > li { /*子選擇器，只有第一層*/
+	float: left;
+}
+
+.menu li {
+	position: relative;
+	padding: 0px;
+	border: lightblue 1px dashed;
+	min-width: 140px;
+}
+
+.menu ul {
+	position: absolute;
+	z-index: 10;
+	top: 100%;
+	display: none; /*預設ul不顯示*/
+}
+
+.menu ul li > ul { /*定義上一層ul li與下一層ul的距離*/
+	z-index: 20;
+	top: 5%;
+	left: 95%;
+}
+
+.menu a {
+	display: block;
+	padding: 5px 20px;
+	text-decoration: none;
+	background-image: url(../images/btn1.jpg);
+	background-size: cover;
+	color: black;
+}
+
+.menu a:hover {
+	background-image: url(../images/btn2.jpg);
+	background-size: cover;
+	color: white;
+}
+
+.menu li:hover > ul {
+	display: block; /*移動到li，li下一層的ul才顯示*/
+}
+
+.slider_container div {
+	position: absolute; 
+	top: 110px; 
+	left: 60%; 
+	opacity: 0; 
+	filter: alpha(opacity=0);
+}
+
+.slider_container div {
+	-webkit-animation: round 10s linear infinite; 
+	animation: round 10s linear infinite;
+}
+.slider_container1 div {
+	position: absolute; 
+	top: 110px; 
+	left: 10%; 
+	opacity: 0; 
+	filter: alpha(opacity=0);
+}
+
+.slider_container1 div {
+	-webkit-animation: round 10s linear infinite; 
+	animation: round 10s linear infinite;
+}
+
+@-webkit-keyframes round {
+    /*0-1秒 淡入*/
+    10%{
+    	opacity: 1;
+    	filter: alpha(opacity=100);
+    }
+    /*1-5秒 靜止*/
+    50% {
+        opacity: 1;
+        filter: alpha(opacity=100);
+    }
+    /*5-6秒 淡出*/
+    60% {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+}
+
+@keyframes round {
+	/*0-1秒 淡入*/
+    10% {
+        opacity: 1;
+        filter: alpha(opacity=100);
+    }
+    /*1-5秒 靜止*/
+    50% {
+        opacity: 1;
+        filter: alpha(opacity=100);
+    }
+    /*5-6秒 淡出*/
+    60% {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+}
+
+.slider_container div:nth-child(2) {
+    -webkit-animation-delay: 0s;
+            animation-delay: 0s;
+}
+
+.slider_container div:nth-child(1) {
+    -webkit-animation-delay: 5s;
+            animation-delay: 5s;
+}
+.slider_container1 div:nth-child(2) {
+    -webkit-animation-delay: 0s;
+            animation-delay: 0s;
+}
+
+.slider_container1 div:nth-child(1) {
+    -webkit-animation-delay: 5s;
+            animation-delay: 5s;
+}
+
+/*固定配置選單*/
+footer{
+	position: fixed; 
+	background-color: #4F5D75; 
+	width: 100%; 
+	left: 0; 
+	bottom: 0; 
+	margin: 6px auto; 
+	color: #2D3142; 
+	text-shadow: -0.5px -0.5px 0 #aaa, 0.5px 0.5px 0 #FFF; 
+	box-shadow: 0 0 0 6px #9cc883;
+}
+
+.ts2{
+	font-family:arial, san-serif;
+	font-size:100%;
+	font-weight:bold;
+	text-align:center;
+	color: white;
+	-webkit-text-stroke: 0.5px #000;
+	text-shadow: 1.5px 1.5px 0 #000;
+}
