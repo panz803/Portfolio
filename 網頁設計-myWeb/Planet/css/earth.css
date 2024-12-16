@@ -1,0 +1,168 @@
+@charset "utf-8";
+
+/*視窗背景色設定*/
+body{
+	/*
+	background-color: #BFB59E;
+	background-image: url(../images/bg.png);
+	background-repeat: repeat-x;
+	*/
+	background: #2D3142 url(../images/地球2.jpg) repeat-x;
+}
+
+/*連結顏色設定*/
+a{
+	color: #413C58;
+}
+
+a:hover{
+	color: #94849B;
+	text-decoration: none;
+}
+
+/*頁首，導覽，頁尾的共通設定*/
+header,nav,footer{
+	text-align: center;
+}
+
+/*導覽樣式設定*/
+.menu li {
+	list-style-type: none;
+	display: inline-block;
+	width: 320px;
+	margin: 10px 10px;
+}
+
+.menu a {
+	display: block;
+	padding: 10px;
+	background: #858786;
+	border-radius: 8px;
+	color: #fff;
+	text-decoration: none;
+}
+
+.menu a:hover {
+	background: #394648;
+}
+
+/*頁面標題設定*/
+h1{
+	width: 300px;
+	margin: 45px auto;
+	padding: 30px;
+	border: 5px solid #B4ADA3;
+	background-color: #858786;
+	color: #fff;
+	font-size: 300%;
+	text-align: center;
+	line-height: 1.3;
+	border-radius: 50%;
+	text-shadow: 1px 1px 2px #262626;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	background-image: linear-gradient(to bottom,#858786,#394648);
+	font-family: 'Limelight', cursive;
+	font-family: 'Playfair Display', serif;
+}
+
+/*次標題設定*/
+.h{
+	padding: 10px;
+	margin-bottom: 30px;
+	border: 1px dotted #A0AAB2;
+	border-left: 10px solid #94849B;
+	color: #2E4052;
+	border-radius: 5px 0 0 5px;
+}
+
+/*小標題設定*/
+.h-sub {
+	padding: 20px;
+	background-color: #4F5D75;
+	color: #FFFFFF;
+	border-radius: 10px;
+	box-shadow: 0 0 5px 2px #2D3142 inset;
+}
+
+/*內容區塊邊框設定*/
+#contents{
+	width: 798px;
+	margin: 40px auto;
+	padding: 40px 80px;
+	border: 1px solid #f6bb9e;
+	background-color: #fff;
+}
+
+/*「更多介紹」連結設定*/
+.more{
+	text-align: right;
+}
+
+.more::after{
+	content: url(../images/ico_arrow.png);
+	margin-left: 3px;
+	vertical-align: middle;
+}
+
+.clear{
+	clear: both;
+}
+
+/*區塊間分隔*/
+#contents > section + section{
+	margin-top: 80px;
+}
+
+/*文繞圖設定*/
+.imgL{
+	float: center;
+	margin: 0 175px auto;
+}
+
+.clearfix::after{
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.ts2{
+	font-family:arial, san-serif;
+	font-size:100%;
+	font-weight:bold;
+	text-align:center;
+	color: white;
+	-webkit-text-stroke: 0.5px #000;
+	text-shadow: 1.5px 1.5px 0 #000;
+}
+
+/*回頁面開頭*/
+#pagetop{
+	margin: 0;
+	position: fixed;
+	right: 0;
+	bottom: 42px;
+	font-size: 16px;
+}
+
+#pagetop a{
+	display: block;
+	padding: 5px 20px;
+	background: #000;
+	color: #fff;
+	text-decoration: none;
+}
+
+#pagetop1{
+	margin: 0;
+	position: fixed;
+	left: 0;
+	bottom: 42px;
+}
+
+#pagetop1 a{
+	display:inline-block;
+	padding:10px;
+	background: #000;
+	color: #fff;
+	text-decoration: none;
+}

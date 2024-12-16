@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+	<meta charset="UTF-8">
+	<title>member Web</title>
+	<link href="css/member.css" rel="stylesheet" media="all">
+	<link href="https://fonts.googleapis.com/css2?family=Limelight&family=Playfair+Display:wght@900&display=swap" rel="stylesheet">
+</head>
+<body>
+	<header>
+		<h1>member Web</h1>
+	</header>
+	<main id="contents">
+		<form id="entryForm" action="#" method="post">
+			<p>
+				<strong><span class="require">*</span>為必填項目。</strong>
+			</p>
+			<table class="entryTable">
+				<caption>會員資料</caption>
+				<tr>
+					<th>姓名*</th>
+					<td><input type="text" name="cat-name" required autofocus></td>
+				</tr>
+				<tr>
+					<th>年齡*</th>
+					<td>
+						<select name="age" required>
+							<option value="" selected>請選擇</option>
+							<option value="0">未滿18歲</option>
+							<option value="1">19~20歲</option>
+							<option value="2">21~30歲</option>
+							<option value="3">31~40歲</option>
+							<option value="4">41~50歲</option>
+							<option value="5">51歲以上</option>
+							<option value="6">不明</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th>性別*</th>
+					<td>
+						<input type="radio" name="sex" id="male" value="男生" checked><label for="male">男生</label>
+						<input type="radio" name="sex" id="female" value="女生"><label for="female">女生</label>
+					</td>
+				</tr>
+				<tr>
+					<th>E-Mail*</th>
+					<td>
+						<input type="email" name="email" required placeholder="sample@gmail.com">
+						<small>※請輸入半形文字</small>
+					</td>
+				</tr>
+				<tr>
+					<th>大頭照*</th>
+					<td><input type="file" name="photo" required></td>
+				</tr>
+				<tr>
+					<th>最愛的星球</th>
+					<td>
+						<input type="checkbox" name="favorite" value="月球">月球
+						<input type="checkbox" name="favorite" value="地球">地球
+						<input type="checkbox" name="favorite" value="火星">火星
+						<input type="checkbox" name="favorite" value="金星">金星
+						<input type="checkbox" name="favorite" value="水星">水星
+						<input type="checkbox" name="favorite" value="木星">木星
+						<input type="checkbox" name="favorite" value="土星">土星
+						<input type="checkbox" name="favorite" value="天王星">天王星
+						<input type="checkbox" name="favorite" value="海王星">海王星
+						<input type="checkbox" name="favorite" value="冥王星">冥王星
+					</td>
+				</tr>
+				<tr>
+					<th>建議留言</th>
+					<td><textarea name="comment" rows="4" cols="40"></textarea></td>
+				</tr>
+			</table>
+			<div class="entryBtns">
+				<input type="reset" value="清除重填">
+				<input type="submit" value="送出">
+			</div>
+		</form>
+	</main>
+	<p id="pagetop1"><a href="#">TOPへ</a></p>
+	<p id="pagetop"><a href="http://web3.nutc.edu.tw/~s1411031011/HW/Index.htm">首頁へ</a></p>
+	<footer class="ts2">
+		<p>班級：資管一1 / 學號：s1411031011 / 姓名：潘芝儀</p>
+	</footer>
+</body>
+</html>
