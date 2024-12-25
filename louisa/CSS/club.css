@@ -1,0 +1,99 @@
+/*section*/
+
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 25%; /* 调整背景颜色部分的高度 */
+    background: url(../images/club/club.jpg) no-repeat ; /* 背景圖 */
+    background-attachment: fixed;
+    background-size: 100%;
+    z-index: -1; /* 将伪元素移到底层 */
+}
+
+section {
+    color: white;
+    margin-top: 100px; /* 將 section 往下移動 100 像素 */
+}
+
+.news h2 {
+    position: absolute; /* 將 h2 元素設置為絕對定位 */
+    top: 108px; /* 距離 section 上方 50px */
+}
+
+.right-text {
+    position: absolute; /* 將右側文字設置為絕對定位 */
+    top: 96px;
+    right: 175px;
+    padding: 20px; /* 調整文字與 section 邊框的距離 */
+    color: #eff0f9; /* 將右側文字的顏色設置為淺灰色 */
+}
+
+.right-text a {
+    color: white; /* 將右側文字中的超連結顏色設置為黑色 */
+    text-decoration: none; /* 移除超連結的底線 */
+    transition: color 0.3s; /* 添加平滑的顏色過渡效果 */
+}
+
+.right-text a:hover {
+    color: orange; /* 將超連結在觸碰時變成橘色 */
+}
+
+h6{
+    color: #333;
+}
+
+/*footer*/
+
+footer h6 {
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    background-color: transparent;
+}
+        
+footer a {
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+footer a:hover{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.date {
+    color: #818494;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.date:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+footer {
+    background: #333;
+}
+
+/* TOP 鏈接框線 */
+.back-to-top {
+    border: 1px solid #818494; /* 設置邊框顏色和寬度 */
+    padding: 5px 15px; /* 設置內邊距 */
+    color: #818494; /* 初始文字顏色 */
+}
+
+.back-to-top:hover {
+    border: 1px solid #ffffff; /* 設置邊框顏色和寬度 */
+    padding: 5px 15px; /* 設置內邊距 */
+    color: #ffffff; /* 鼠標懸停時的文字顏色 */
+}

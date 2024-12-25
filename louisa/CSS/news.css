@@ -1,0 +1,103 @@
+@import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
+
+body{
+    font-family: Rubik,Arial,sans-serif;
+    font-weight: 400;
+    font-size: 11px;
+    overflow-x: hidden;
+}
+
+
+.dropdown-menu li:hover .sub-menu {
+    visibility: visible;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.navbar{
+    z-index: 10;          
+    position: fixed;      
+    top: 0;
+    margin-top: 0;
+    min-width: 100%;
+    opacity: 0.94;
+    transition: opacity .5s ease-out;   
+}
+
+h4{
+    background-color: #edf0f2;
+    border-color: #b6b8c4;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+}
+
+.is a {
+    color: black;
+    font-weight: bold;
+    background-color: gold;
+}
+
+.is a:hover{
+    color: orange;
+}
+
+.page-link {
+    color: black; /* 將分頁元件文字顏色設定為黑色 */
+}
+
+footer h6 {
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+        
+footer a {
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+footer a:hover{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.date {
+    color: #818494;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.date:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+footer {
+    background: #333;
+}
+
+/* TOP 鏈接框線 */
+.back-to-top {
+    border: 1px solid #818494; /* 設置邊框顏色和寬度 */
+    padding: 5px 15px; /* 設置內邊距 */
+    color: #818494; /* 初始文字顏色 */
+}
+
+.back-to-top:hover {
+    border: 1px solid #ffffff; /* 設置邊框顏色和寬度 */
+    padding: 5px 15px; /* 設置內邊距 */
+    color: #ffffff; /* 鼠標懸停時的文字顏色 */
+}
+
+

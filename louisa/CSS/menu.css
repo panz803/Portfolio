@@ -1,0 +1,35 @@
+/*nav*/
+.navbar{
+    float: right;
+    background-color: #fff; /* 将navbar的背景色设为白色 */
+    border-top: 0.5px solid #ccc; /* 添加上格线，颜色为淡灰色 */
+    border-bottom: 0.5px solid #ccc; /* 添加下格线，颜色为淡灰色 */
+}
+
+.nav-item{
+    padding: 10px;
+}
+
+.navbar li:nth-last-child(2) {
+    border-right: 0.5px solid #ccc; /* 添加导航项之间的分隔线 */
+}
+
+/* 調整第一層 dropdown-menu 位置 */
+.dropdown-menu {
+    position: static;
+    transform: translateX(100%);
+    margin: 0;
+}
+
+/* 調整第二層 dropdown-menu 位置 */
+.dropdown-submenu .dropdown-menu {
+    position: static;
+    transform: translateX(100%);
+    margin: 0;
+    left: 100%;
+}
+
+.dropdown-submenu .dropdown-menu-end {
+    left: 100%;
+    right: auto;
+}

@@ -1,0 +1,204 @@
+/*section*/
+
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 25%; /* 调整背景颜色部分的高度 */
+    background-color: #f9f9f9; /* 背景颜色 */
+    z-index: -1; /* 将伪元素移到底层 */
+}
+
+section {
+    color: black;
+    margin-top: 120px; /* 將 section 往下移動 100 像素 */
+}
+
+.news h2 {
+    position: absolute; /* 將 h2 元素設置為絕對定位 */
+    top: 108px; /* 距離 section 上方 50px */
+    left:10%;
+  }
+
+  .right-text {
+    position: absolute; /* 將右側文字設置為絕對定位 */
+    top: 96px;
+    right: 175px;
+    padding: 20px; /* 調整文字與 section 邊框的距離 */
+    background-color: #f9f9f9; /* 右側文字的背景顏色 */
+    color: #818494; /* 將右側文字的顏色設置為淺灰色 */
+  }
+
+  .right-text a {
+    color: black; /* 將右側文字中的超連結顏色設置為黑色 */
+    text-decoration: none; /* 移除超連結的底線 */
+    transition: color 0.3s; /* 添加平滑的顏色過渡效果 */
+}
+
+.right-text a:hover {
+    color: orange; /* 將超連結在觸碰時變成橘色 */
+}
+
+/*index*/
+
+ .container {
+    display: flex;
+    flex-direction: column; /* 設置主軸方向為垂直方向 */
+    justify-content: center;
+    align-items: center;
+    height: 80%; /* 使用視窗的高度作為容器的高度，使圖像垂直置中 */
+    margin-top: 120px;
+}
+
+.center-text {
+    text-align: center;
+    margin-bottom: 20px; /* 調整文字和圖像之間的距離 */
+    font-size: 32px;
+}
+
+.job-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.job-item .left {
+    position: relative;
+    margin-bottom: 100px;
+    float: left; /* 让左侧的元素浮动到左侧 */
+    margin-right: 10px; /* 可根据需要调整间距 */
+    color: #FF6600;
+}
+
+.job-item .right h5 {
+    font-size: 16px;
+}
+
+.job-item .right p {
+    font-size: 13px;
+    color: #666;
+    line-height: 0.6cm;
+}
+
+.button-container {
+    text-align: center; /* 將內容置中 */
+}
+
+.left-button,
+.right-button {
+    margin-right: 80px; /* 調整左邊按鈕的右邊間距 */
+    margin-top: 40px;
+    width: 200px;
+    height: 50px;
+    background-color: #FF6600;
+    color: white;
+    border: 0.5px solid #666;
+    display: inline-block; /* 讓按鈕以內聯塊元素方式呈現 */
+    padding: 10px 20px; /* 設置按鈕的內邊距 */
+    margin-bottom: 120px;
+}
+
+.left-button{
+    float: left; /* 讓按鈕靠左 */
+}
+
+.right-button {
+    float: right; /* 讓按鈕靠右 */
+}
+
+.left-button:hover,
+.right-button:hover {
+    color: white; /* 在滑鼠懸停時保持文字顏色 */
+    background-color: #FF6600; /* 在滑鼠懸停時保持背景顏色 */
+    text-decoration: none; /* 在滑鼠懸停時移除底線 */
+}
+
+.bottom-section h2 {
+    position: relative;
+    top:100px !important;
+    text-align: center;
+    font-size: 40px;
+    top:250px;
+    font-weight: normal;
+    letter-spacing: 6px;
+}
+
+.square {
+    /* 這裡設定 .square 的樣式，例如背景顏色、邊框等 */
+    background-color: rgba(51, 49, 49, 0.5); /* 設定背景顏色為灰色 */
+    padding: 20px; /* 設定內邊距 */
+    text-align: center; /* 水平置中文本 */
+    margin-top: 20px; /* 設定上邊距，將 .square 元素下移 */
+    width: 350px;
+    height: 220px;
+}
+
+.square i {
+    margin-top: 30px;
+    font-size: 56px;
+}
+
+.square h5 {
+    margin-top: 30px;
+}
+
+.square p {
+    text-align: left; 
+    margin-top: 30px;
+    font-size: 13px;
+}
+
+/*footer*/
+
+footer h6 {
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    background-color: transparent;
+}
+        
+footer a {
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+footer a:hover{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.date {
+    color: #818494;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.date:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+footer {
+    background: #333;
+}
+
+/* TOP 鏈接框線 */
+.back-to-top {
+    border: 1px solid #818494; /* 設置邊框顏色和寬度 */
+    padding: 5px 15px; /* 設置內邊距 */
+    color: #818494; /* 初始文字顏色 */
+}
+
+.back-to-top:hover {
+    border: 1px solid #ffffff; /* 設置邊框顏色和寬度 */
+    padding: 5px 15px; /* 設置內邊距 */
+    color: #ffffff; /* 鼠標懸停時的文字顏色 */
+}

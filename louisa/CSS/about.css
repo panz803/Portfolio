@@ -1,0 +1,121 @@
+/*index*/
+
+img[src="images/about/1.jpg"]{
+    width: 100%;
+    filter: brightness(70%);
+}
+
+.over-text {
+    position: absolute;
+    top: 50%; /* 設置文字的垂直位置為圖片的中間 */
+    left: 20%; /* 設置文字的水平位置為圖片的中間 */
+    transform: translate(-50%, -50%); /* 通過此轉換將文字水平垂直居中 */
+    color: #fff; /* 文字顏色 */
+    padding: 10px 20px; /* 文字內邊距 */
+    font-size: 64px;
+}
+
+.over-text1{
+    position: absolute;
+    top: 58%;
+    left: 13%;
+    transform: translate(-50%, -50%);
+    color: white;
+    line-height: 1cm;
+    
+}
+
+.over-text2{
+    position: absolute;
+    top: 64%;
+    left: 15.6%;
+    transform: translate(-50%, -50%);
+    color: white;
+    line-height: 1cm;
+    
+}
+
+.contianer{
+    background-color: rgb(255, 111, 0);
+}
+
+img[src="images/about/2.png"]{
+    filter: brightness(150%);
+    width: 25%;
+    height: 15%;
+    margin-top: 100px;
+
+}
+
+.text1{
+    color: white;
+    font-size: 16px;
+    line-height: 22pt;
+    margin-top: 100px;
+    width:28em;/*限制28個字一行*/
+}
+
+.contianer h4{
+    font-size: 16px;
+    color: white;
+    margin-top: -100px;
+}
+
+.contianer p{
+    color: white;
+    font-size: 16px;
+    margin-bottom: 100px;
+}
+
+/*footer*/
+
+footer h6 {
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    background-color: transparent;
+}
+        
+footer a {
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+footer a:hover{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.date {
+    color: #818494;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.date:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+footer {
+    background: #333;
+}
+
+/* TOP 鏈接框線 */
+.back-to-top {
+    border: 1px solid #818494; /* 設置邊框顏色和寬度 */
+    padding: 5px 15px; /* 設置內邊距 */
+    color: #818494; /* 初始文字顏色 */
+}
+
+.back-to-top:hover {
+    border: 1px solid #ffffff; /* 設置邊框顏色和寬度 */
+    padding: 5px 15px; /* 設置內邊距 */
+    color: #ffffff; /* 鼠標懸停時的文字顏色 */
+}

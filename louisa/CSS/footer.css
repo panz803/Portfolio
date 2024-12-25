@@ -1,0 +1,51 @@
+/*footer*/
+footer h6 {
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    background-color: transparent;
+}
+        
+footer a {
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+footer a:hover{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.date {
+    color: #818494;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.date:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+footer {
+    background: #333;
+}
+
+/* TOP 鏈接框線 */
+.back-to-top {
+    border: 1px solid #818494; /* 設置邊框顏色和寬度 */
+    padding: 5px 15px; /* 設置內邊距 */
+    color: #818494; /* 初始文字顏色 */
+}
+
+.back-to-top:hover {
+    border: 1px solid #ffffff; /* 設置邊框顏色和寬度 */
+    padding: 5px 15px; /* 設置內邊距 */
+    color: #ffffff; /* 鼠標懸停時的文字顏色 */
+}
